@@ -3,7 +3,7 @@
 int main()
 {
     char c = '@';
-    char *str = "This is a string.";
+    char str[] = "This is a string.";
     printf("char: %c\n", c);
     printf("string1: %s\n", str);
     //也可以直接输出字符串

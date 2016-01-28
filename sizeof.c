@@ -12,6 +12,6 @@ int main(){
     int b_length= sizeof(int);
 
     printf("a=%d, b=%d, c=%d, d=%d\n", a_length, b_length, sizeof(c), sizeof(char));
-    printf("sizeof e is %d",sizeof e);
+    printf("sizeof b is %d",sizeof b);
     return 0;
 }
