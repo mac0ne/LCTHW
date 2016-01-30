@@ -7,6 +7,7 @@ http://c.learncodethehardway.org/book/ex4.html
 
 
 # Notes
+valgrind --leak-check=yes/full to check leak
 
 ## References:
 

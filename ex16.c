@@ -27,7 +27,7 @@ void Person_destroy(struct Person *who)
 {
     assert(who != NULL);
 
-    //free(who->name);
+    free(who->name);
     free(who);
 }
 
@@ -68,6 +68,8 @@ int main(int argc, char *argv[])
     // destroy them both so we clean up
     Person_destroy(joe);
     Person_destroy(frank);
+    //Person_print(NULL);
+    //Person_destroy(NULL);
 
     return 0;
 }
