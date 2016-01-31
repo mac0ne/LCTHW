@@ -4,18 +4,21 @@
 #include <errno.h>
 #include <string.h>
 
-#define MAX_DATA 20
-#define MAX_ROWS 100
+//#define MAX_DATA 20
+//#define MAX_ROWS 100
 
 struct Address {
     int id;
     int set;
-    char name[MAX_DATA];
-    char email[MAX_DATA];
+    char *name;
+    char *email;
 };
 
 struct Database {
-    struct Address rows[MAX_ROWS];
+    int MAX_DATA;
+    int MAX_ROWS;
+    int size;
+    struct Address *rows;
 };
 
 struct Connection {
@@ -23,6 +26,7 @@ struct Connection {
     struct Database *db;
 };
 
+void Database_close(struct Connection *conn);
 void die(const char *message, struct Connection *conn)
 {
     if(errno) {
@@ -90,10 +94,12 @@ void Database_write(struct Connection *conn)
     if(rc == -1) die("Cannot flush database.");
 }
 
-void Database_create(struct Connection *conn)
+void Database_create(struct Connection *conn, int MAX_ROWS, int MAX_DATA)
 {
     int i = 0;
-
+    
+    conn->db->MAX_ROWS = MAX_ROWS;
+    conn->db->MAX_DATA = MAX_DATA;
     for(i = 0; i < MAX_ROWS; i++) {
         // make a prototype to initialize it
         struct Address addr = {.id = i, .set = 0};
@@ -150,7 +156,7 @@ void Database_list(struct Connection *conn)
 
 int main(int argc, char *argv[])
 {
-    if(argc < 3) die("USAGE: ex17 <dbfile> <action> [action params]");
+    if(argc < 3) die("USAGE: ex17 <dbfile> <action> [action params]",NULL);
 
     char *filename = argv[1];
     char action = argv[2][0];

@@ -1,10 +1,8 @@
 # LCTHW
 The git repo for learning C.
 
-# Current page
-
-http://c.learncodethehardway.org/book/ex4.html
-
+# TODO
+ex17_extra
 
 # Notes
 valgrind --leak-check=yes/full to check leak
