@@ -17,7 +17,7 @@ void die(const char *message)
 
 // a typedef creates a fake type, in this
 // case for a function pointer
-typedef int (*compare_cb)(int a, int b);
+typedef int (*compare_cb)(int , int );
 
 /**
  * A classic bubble sort function that uses the 
@@ -108,9 +108,9 @@ int main(int argc, char *argv[])
         numbers[i] = atoi(inputs[i]);
     }
 
-    test_sorting(numbers, count, sorted_order);
-    test_sorting(numbers, count, reverse_order);
-    test_sorting(numbers, count, strange_order);
+    test_sorting(numbers, count, &sorted_order);
+    test_sorting(numbers, count, &reverse_order);
+    test_sorting(numbers, count, &strange_order);
 
     printf("\n");
     free(numbers);

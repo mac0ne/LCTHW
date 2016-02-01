@@ -63,11 +63,14 @@ int *insertion_sort(int *numbers, int count, compare_cb cmp)
 
     for(i=1; i< count; i++)
     {
-        for(j=i;j>1 && cmp(target[j],target[j-1])>0; j--)
+        for(j=i;j>0 ; j--)
         {
-            temp = target[j-1];
-            target[j-1] = target[j];
-            target[j] = temp;
+            if (cmp(target[j],target[j-1])<0)
+            {
+                temp = target[j-1];
+                target[j-1] = target[j];
+                target[j] = temp;
+            }
         }
     }
     return target;
@@ -134,7 +137,7 @@ int main(int argc, char *argv[])
         numbers[i] = atoi(inputs[i]);
     }
 
-    test_sorting(numbers, count, sorted_order,bubble_sort);
+    test_sorting(numbers, count, sorted_order, insertion_sort);
     test_sorting(numbers, count, reverse_order,insertion_sort);
     test_sorting(numbers, count, strange_order,insertion_sort);
 
