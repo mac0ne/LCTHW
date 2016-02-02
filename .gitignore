@@ -3,3 +3,5 @@
 !Makefile
 !.gitignore
 !README.md
+!*.h
+!/*/*.h
