@@ -4,4 +4,8 @@
 !.gitignore
 !README.md
 !*.h
-!ex19/
+!ex*/
+/ex*/*
+*.dSYM/
+!/ex*/*.c
+!/ex20/*.c
