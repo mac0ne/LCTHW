@@ -18,7 +18,7 @@ void die(const char *message)
 // a typedef creates a fake type, in this
 // case for a function pointer
 typedef int (*compare_cb)(int , int );
-
+//
 /**
  * A classic bubble sort function that uses the 
  * compare_cb to do the sorting. 
