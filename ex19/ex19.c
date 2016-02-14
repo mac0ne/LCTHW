@@ -5,6 +5,7 @@
 #include <time.h>
 #include "ex19.h"
 
+//some comments
 
 int Monster_attack(void *self, int damage)
 {
